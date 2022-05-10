@@ -6,7 +6,6 @@ import { Tab2Page } from './tab2.page';
 
 import { Tab2PageRoutingModule } from './tab2-routing.module';
 import { SearchModalComponent } from '../modals/search-modal/search-modal.component';
-import { ItemSkeletonComponent } from './components/item-skeleton/item-skeleton.component';
 import { ComponentsModule } from '../components/components.module';
 
 @NgModule({
@@ -17,6 +16,6 @@ import { ComponentsModule } from '../components/components.module';
     Tab2PageRoutingModule,
     ComponentsModule,
   ],
-  declarations: [Tab2Page, SearchModalComponent, ItemSkeletonComponent],
+  declarations: [Tab2Page, SearchModalComponent],
 })
 export class Tab2PageModule {}

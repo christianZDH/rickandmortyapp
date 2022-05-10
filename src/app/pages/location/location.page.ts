@@ -33,8 +33,6 @@ export class LocationPage implements OnInit {
       .getLocationId(this.idLocation)
       .subscribe((location: LocationI) => {
         this.location = location;
-        console.log(location);
-
         this.loadCharacters(location.residents);
       });
   }

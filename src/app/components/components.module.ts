@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { ItemEpisodeComponent } from './item-episode/item-episode.component';
 import { ItemCharacterComponent } from './item-character/item-character.component';
 import { ItemLocationComponent } from './item-location/item-location.component';
+import { ItemSkeletonComponent } from '../components/item-skeleton/item-skeleton.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { ItemLocationComponent } from './item-location/item-location.component';
     ItemEpisodeComponent,
     ItemCharacterComponent,
     ItemLocationComponent,
+    ItemSkeletonComponent,
   ],
   imports: [CommonModule, IonicModule],
   exports: [
@@ -19,6 +21,7 @@ import { ItemLocationComponent } from './item-location/item-location.component';
     ItemEpisodeComponent,
     ItemCharacterComponent,
     ItemLocationComponent,
+    ItemSkeletonComponent,
   ],
 })
 export class ComponentsModule {}
