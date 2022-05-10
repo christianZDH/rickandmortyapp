@@ -1,0 +1,11 @@
+<ion-item color="secondary" *ngFor="let items of [1, 2, 3, 4]">
+  <ion-skeleton-text
+    slot="start"
+    animated
+    style="width: 70px; height: 70px; --border-radius: 13px"
+  ></ion-skeleton-text>
+  <ion-text>
+    <ion-skeleton-text animated style="width: 150px"></ion-skeleton-text>
+    <ion-skeleton-text animated style="width: 70px"></ion-skeleton-text>
+  </ion-text>
+</ion-item>

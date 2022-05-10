@@ -1,0 +1,9 @@
+<ion-item color="secondary" (click)="clickCharacter(character)" button detail>
+  <ion-thumbnail slot="start">
+    <ion-img [src]="character.image"> </ion-img>
+  </ion-thumbnail>
+  <ion-text>
+    <ion-label class="name">{{ character.name }}</ion-label>
+    <ion-label class="specie">{{ character.species }}</ion-label>
+  </ion-text>
+</ion-item>

@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="secondary">
+    <ion-searchbar
+      (ionChange)="onSearchChange($event)"
+      [placeholder]="inputPlaceholder"
+      color="secondary"
+      inputmode="search"
+      type="text"
+      [debounce]="200"
+    ></ion-searchbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon slot="icon-only" name="chevron-down"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content color="secondary">
+  <ion-list *ngIf="characters.length > 0">
+    <app-item-character
+      *ngFor="let character of characters"
+      (onclick)="viewCharacter($event)"
+      [character]="character"
+    ></app-item-character>
+  </ion-list>
+
+  <ion-list *ngIf="episodes.length > 0">
+    <app-item-episode
+      *ngFor="let episode of episodes"
+      (onclick)="viewEpisode($event)"
+      [episode]="episode"
+    ></app-item-episode>
+  </ion-list>
+
+  <ion-list *ngIf="locations.length > 0">
+    <app-item-location
+      *ngFor="let location of locations"
+      (onclick)="viewLocation($event)"
+      [location]="location"
+    ></app-item-location>
+  </ion-list>
+</ion-content>

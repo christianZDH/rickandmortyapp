@@ -1,0 +1,17 @@
+ion-item {
+  ion-thumbnail {
+    width: 70px;
+    height: 70px;
+    --border-radius: 13px;
+  }
+
+  .name {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .specie {
+    font-weight: 500;
+  }
+
+}

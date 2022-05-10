@@ -1,17 +1,25 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
+<ion-header class="ion-no-border">
+  <app-toolbar title="Characters" (onsearchClick)="searchModal()"></app-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content color="secondary">
+  <ion-list color="secondary" class="animate__animated animate__fadeIn">
+    <ion-virtual-scroll [items]="characters">
+      <app-item-character
+        *virtualItem="let character"
+        [character]="character"
+        (onclick)="viewCharacter($event)"
+      ></app-item-character>
+    </ion-virtual-scroll>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+    <ion-infinite-scroll
+      threshold="100px"
+      position="bottom"
+      (ionInfinite)="loadData($event)"
+    >
+      <ion-infinite-scroll-content loadingSpinner="null">
+        <app-item-skeleton></app-item-skeleton>
+      </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+  </ion-list>
 </ion-content>
