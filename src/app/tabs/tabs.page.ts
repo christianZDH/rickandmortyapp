@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 
 interface TabI {
-  tab: string;
   label: string;
+  icon: string;
+  tab: string;
 }
 @Component({
   selector: 'app-tabs',
@@ -13,10 +14,10 @@ export class TabsPage {
   tabSelected: string;
 
   tabs: TabI[] = [
-    { tab: 'tab1', label: 'Episodes' },
-    { tab: 'tab2', label: 'Characters' },
-    { tab: 'tab3', label: 'Locations' },
-    { tab: 'tab4', label: 'Favorites' },
+    { tab: 'tab1', label: 'Episodes', icon: 'videocam-outline' },
+    { tab: 'tab2', label: 'Characters', icon: 'accessibility-outline' },
+    { tab: 'tab3', label: 'Locations', icon: 'globe-outline' },
+    { tab: 'tab4', label: 'Favorites', icon: 'heart-outline' },
   ];
   constructor() {}
 
