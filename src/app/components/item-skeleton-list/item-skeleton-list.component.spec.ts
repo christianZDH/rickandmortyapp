@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { SkeletonItemComponent } from './skeleton-item.component';
+import { ItemSkeletonListComponent } from './item-skeleton-list.component';
 
 describe('SkeletonItemComponent', () => {
-  let component: SkeletonItemComponent;
-  let fixture: ComponentFixture<SkeletonItemComponent>;
+  let component: ItemSkeletonListComponent;
+  let fixture: ComponentFixture<ItemSkeletonListComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ SkeletonItemComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [ItemSkeletonListComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SkeletonItemComponent);
+    fixture = TestBed.createComponent(ItemSkeletonListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -6,6 +6,7 @@ import { ItemEpisodeComponent } from './item-episode/item-episode.component';
 import { ItemCharacterComponent } from './item-character/item-character.component';
 import { ItemLocationComponent } from './item-location/item-location.component';
 import { ItemSkeletonComponent } from '../components/item-skeleton/item-skeleton.component';
+import { ItemSkeletonListComponent } from './item-skeleton-list/item-skeleton-list.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ItemSkeletonComponent } from '../components/item-skeleton/item-skeleton
     ItemCharacterComponent,
     ItemLocationComponent,
     ItemSkeletonComponent,
+    ItemSkeletonListComponent,
   ],
   imports: [CommonModule, IonicModule],
   exports: [
@@ -22,6 +24,7 @@ import { ItemSkeletonComponent } from '../components/item-skeleton/item-skeleton
     ItemCharacterComponent,
     ItemLocationComponent,
     ItemSkeletonComponent,
+    ItemSkeletonListComponent,
   ],
 })
 export class ComponentsModule {}
