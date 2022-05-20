@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { LocationService } from '../services/location.service';
-import { LocationI } from '../interfaces/location.interface';
+import { LocationService } from '../shared/services/location.service';
+import { LocationI } from '../shared/interfaces/location.interface';
 import { Router } from '@angular/router';
 import {
   IonInfiniteScroll,
   IonVirtualScroll,
   ModalController,
 } from '@ionic/angular';
-import { SearchModalComponent } from '../modals/search-modal/search-modal.component';
+import { SearchModalComponent } from '../shared/modals/search-modal/search-modal.component';
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',

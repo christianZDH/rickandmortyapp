@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/prefer-for-of */
 import { Component, OnInit } from '@angular/core';
-import { CharacterI } from 'src/app/interfaces/character.interface';
-import { EpisodeI } from 'src/app/interfaces/episode.interface';
-import { CharacterService } from 'src/app/services/character.service';
-import { EpisodeService } from 'src/app/services/episode.service';
+import { CharacterI } from 'src/app/shared/interfaces/character.interface';
+import { EpisodeI } from 'src/app/shared/interfaces/episode.interface';
+import { CharacterService } from 'src/app/shared/services/character.service';
+import { EpisodeService } from 'src/app/shared/services/episode.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({

@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { EpisodeI } from '../interfaces/episode.interface';
-import { EpisodeService } from '../services/episode.service';
+import { EpisodeI } from '../shared/interfaces/episode.interface';
+import { EpisodeService } from '../shared/services/episode.service';
 import { Router } from '@angular/router';
 import {
   IonInfiniteScroll,
   IonVirtualScroll,
   ModalController,
 } from '@ionic/angular';
-import { SearchModalComponent } from '../modals/search-modal/search-modal.component';
+import { SearchModalComponent } from '../shared/modals/search-modal/search-modal.component';
 
 @Component({
   selector: 'app-tab1',

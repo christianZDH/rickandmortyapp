@@ -1,13 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { CharacterService } from '../services/character.service';
-import { CharacterI } from '../interfaces/character.interface';
+import { CharacterService } from '../shared/services/character.service';
+import { CharacterI } from '../shared/interfaces/character.interface';
 import {
   IonVirtualScroll,
   ModalController,
   IonInfiniteScroll,
 } from '@ionic/angular';
 import { Router } from '@angular/router';
-import { SearchModalComponent } from '../modals/search-modal/search-modal.component';
+import { SearchModalComponent } from '../shared/modals/search-modal/search-modal.component';
 
 @Component({
   selector: 'app-tab2',

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { CharacterI } from 'src/app/interfaces/character.interface';
+import { CharacterI } from 'src/app/shared/interfaces/character.interface';
 
 @Component({
   selector: 'app-item-character',

@@ -5,7 +5,6 @@ import {
   CharacterSchemaI,
 } from '../../interfaces/character.interface';
 import { CharacterService } from '../../services/character.service';
-// import { ViewCharacterModalComponent } from '../view-character-modal/view-character-modal.component';
 import { EpisodeI, EpisodeSchemaI } from '../../interfaces/episode.interface';
 import {
   LocationI,

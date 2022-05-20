@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { LocationPageRoutingModule } from './location-routing.module';
 
 import { LocationPage } from './location.page';
-import { ComponentsModule } from '../../components/components.module';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     IonicModule,
     LocationPageRoutingModule,
-    ComponentsModule,
+    SharedModule,
   ],
   declarations: [LocationPage],
 })

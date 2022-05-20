@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/prefer-for-of */
 import { Component, OnInit } from '@angular/core';
-import { CharacterI } from 'src/app/interfaces/character.interface';
-import { LocationI } from 'src/app/interfaces/location.interface';
-import { CharacterService } from 'src/app/services/character.service';
-import { LocationService } from 'src/app/services/location.service';
+import { CharacterI } from 'src/app/shared/interfaces/character.interface';
+import { LocationI } from 'src/app/shared/interfaces/location.interface';
+import { CharacterService } from 'src/app/shared/services/character.service';
+import { LocationService } from 'src/app/shared/services/location.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

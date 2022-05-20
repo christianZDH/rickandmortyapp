@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CharacterI } from '../interfaces/character.interface';
-import { FavoritesService } from '../services/favorites.service';
+import { CharacterI } from '../shared/interfaces/character.interface';
+import { FavoritesService } from '../shared/services/favorites.service';
 import { Router } from '@angular/router';
 
 @Component({

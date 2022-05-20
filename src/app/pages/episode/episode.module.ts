@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { EpisodePageRoutingModule } from './episode-routing.module';
 
 import { EpisodePage } from './episode.page';
-import { ComponentsModule } from '../../components/components.module';
+import { SharedModule } from '../../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { ComponentsModule } from '../../components/components.module';
     FormsModule,
     IonicModule,
     EpisodePageRoutingModule,
-    ComponentsModule,
+    SharedModule,
   ],
   declarations: [EpisodePage],
 })
