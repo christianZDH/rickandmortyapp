@@ -23,6 +23,7 @@ export class DarkmodeService {
   darkMode(status: boolean) {
     document.body.classList.toggle('dark', status);
     localStorage.setItem('darkmode', JSON.stringify(status));
+    this.darkmodeBehavior.next(status);
 
     if (this.platform.is('android' || 'ios')) {
       if (!status) {
