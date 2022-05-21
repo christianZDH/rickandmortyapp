@@ -8,14 +8,14 @@ import { LocationI, locationSchemaI } from '../interfaces/location.interface';
   providedIn: 'root',
 })
 export class LocationService {
-  private locationsBehavior = new BehaviorSubject([]);
+  private locationsBehavior$ = new BehaviorSubject([]);
   private page = 1;
   constructor(private http: HttpClient) {
     this.loadLocations();
   }
 
   getLocations(): Observable<LocationI[]> {
-    return this.locationsBehavior.asObservable();
+    return this.locationsBehavior$.asObservable();
   }
 
   getLocationId(idLocation: number) {
@@ -29,9 +29,10 @@ export class LocationService {
     return new Promise((resolve) => {
       this.http
         .get(`${environment.api}/location?page=${this.page}`)
-        .subscribe((schema: locationSchemaI) => {
-          this.locationsBehavior.value.push(...schema.results);
-          resolve(schema.results);
+        .subscribe((resp: locationSchemaI) => {
+          const items = [...this.locationsBehavior$.value, ...resp.results];
+          this.locationsBehavior$.next(items);
+          resolve(resp.results);
         });
     });
   }
@@ -47,7 +48,7 @@ export class LocationService {
       .get(`${environment.api}/location?page=1`)
       .subscribe((schema: locationSchemaI) => {
         const locations: LocationI[] = schema.results;
-        this.locationsBehavior.next(locations);
+        this.locationsBehavior$.next(locations);
       });
   }
 }

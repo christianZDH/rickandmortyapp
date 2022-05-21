@@ -2,18 +2,26 @@
   <app-toolbar [searchDisable]="true" title="Favorites"></app-toolbar>
 </ion-header>
 
-<ion-content color="secondary">
+<ion-content color="secondary" [scrollY]="false">
   <ion-text
     *ngIf="favoritesCharacters.length === 0"
     style="display: flex; justify-content: center"
+    class="ion-margin-top"
     color="medium"
   >
     <ion-label>Favorite characters not found</ion-label>
   </ion-text>
 
-  <ion-list>
+  <cdk-virtual-scroll-viewport
+    class="ion-content-scroll-host"
+    itemSize="90"
+    minBufferPx="900"
+    maxBufferPx="1350"
+  >
     <ion-list>
-      <ion-item-sliding *ngFor="let character of favoritesCharacters">
+      <ion-item-sliding
+        *ngFor="let character of favoritesCharacters; trackBy: trackBy"
+      >
         <app-item-character
           [character]="character"
           (click)="viewCharacter(character)"
@@ -28,5 +36,5 @@
         </ion-item-options>
       </ion-item-sliding>
     </ion-list>
-  </ion-list>
+  </cdk-virtual-scroll-viewport>
 </ion-content>

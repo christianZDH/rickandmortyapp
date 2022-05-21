@@ -8,14 +8,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class EpisodeService {
-  private episodesBehavior = new BehaviorSubject([]);
+  private episodesBehavior$ = new BehaviorSubject([]);
   private page = 1;
   constructor(private http: HttpClient) {
     this.loadEpisodes();
   }
 
   getEpisodes(): Observable<EpisodeI[]> {
-    return this.episodesBehavior.asObservable();
+    return this.episodesBehavior$.asObservable();
   }
 
   getEpisodeId(idEpisode: number) {
@@ -29,9 +29,9 @@ export class EpisodeService {
         `${environment.api}/episode/?page=${this.page}`
       );
       req.subscribe((resp) => {
-        const newItems: EpisodeI[] = resp.results;
-        this.episodesBehavior.value.push(...newItems);
-        resolve(newItems);
+        const items = [...this.episodesBehavior$.value, ...resp.results];
+        this.episodesBehavior$.next(items);
+        resolve(resp.results);
       });
     });
   }
@@ -47,7 +47,7 @@ export class EpisodeService {
       `${environment.api}/episode/?page=1`
     );
     req.subscribe((resp) => {
-      this.episodesBehavior.next(resp.results);
+      this.episodesBehavior$.next(resp.results);
     });
   }
 }

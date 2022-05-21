@@ -30,4 +30,8 @@ export class Tab4Page implements OnInit {
   removeToFavorite(characterId: number) {
     this.favoriteService.removeFavorite(characterId);
   }
+
+  trackBy(index: number, item: CharacterI) {
+    return item.id;
+  }
 }

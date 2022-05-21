@@ -2,11 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { LocationService } from '../shared/services/location.service';
 import { LocationI } from '../shared/interfaces/location.interface';
 import { Router } from '@angular/router';
-import {
-  IonInfiniteScroll,
-  IonVirtualScroll,
-  ModalController,
-} from '@ionic/angular';
+import { IonInfiniteScroll, ModalController } from '@ionic/angular';
 import { SearchModalComponent } from '../shared/modals/search-modal/search-modal.component';
 @Component({
   selector: 'app-tab3',
@@ -15,7 +11,6 @@ import { SearchModalComponent } from '../shared/modals/search-modal/search-modal
 })
 export class Tab3Page implements OnInit {
   @ViewChild(IonInfiniteScroll) ionInfinite: IonInfiniteScroll;
-  @ViewChild(IonVirtualScroll) virtualScroll: IonVirtualScroll;
   locations: LocationI[] = [];
   constructor(
     private locationService: LocationService,
@@ -29,18 +24,12 @@ export class Tab3Page implements OnInit {
     });
   }
 
-  ionViewDidEnter() {
-    this.virtualScroll.checkEnd();
-    this.virtualScroll.checkRange(0);
-  }
-
   async viewLocationModal(location: LocationI) {
     this.route.navigate([`location/${location.id}`]);
   }
 
   loadData(event: any) {
     this.locationService.loadMore().then((locations: LocationI[]) => {
-      this.virtualScroll.checkEnd();
       event.target.complete();
       if (locations.length < 20) {
         this.ionInfinite.disabled = true;
@@ -54,5 +43,9 @@ export class Tab3Page implements OnInit {
       componentProps: { role: 'location', inputPlaceholder: 'Search location' },
     });
     return modal.present();
+  }
+
+  trackBy(index: number, item: LocationI) {
+    return item.id;
   }
 }

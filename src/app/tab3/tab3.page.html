@@ -2,18 +2,22 @@
   <app-toolbar (onsearchClick)="searchModal()" title="Locations"></app-toolbar>
 </ion-header>
 
-<ion-content color="secondary">
-  <ion-list color="secondary" class="animate__animated animate__fadeIn">
-    <ion-virtual-scroll [items]="locations">
+<ion-content color="secondary" [scrollY]="false">
+  <cdk-virtual-scroll-viewport
+    class="ion-content-scroll-host"
+    itemSize="30"
+    minBufferPx="900"
+    maxBufferPx="1350"
+  >
+    <ion-list color="secondary" class="animate__animated animate__fadeIn">
       <app-item-location
-        *virtualItem="let location"
+        *cdkVirtualFor="let location of locations; trackBy: trackBy"
         [location]="location"
         (onclick)="viewLocationModal($event)"
       ></app-item-location>
-    </ion-virtual-scroll>
-
+    </ion-list>
     <ion-infinite-scroll
-      threshold="25%"
+      threshold="100px"
       position="bottom"
       (ionInfinite)="loadData($event)"
     >
@@ -21,5 +25,5 @@
         <app-item-skeleton-list></app-item-skeleton-list>
       </ion-infinite-scroll-content>
     </ion-infinite-scroll>
-  </ion-list>
+  </cdk-virtual-scroll-viewport>
 </ion-content>

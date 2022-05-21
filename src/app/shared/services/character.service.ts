@@ -12,13 +12,13 @@ import {
 })
 export class CharacterService {
   page = 1;
-  private charactersBehavior = new BehaviorSubject([]);
+  private charactersBehavior$ = new BehaviorSubject([]);
   constructor(private http: HttpClient) {
     this.loadCharacters();
   }
 
   getCharacters(): Observable<CharacterI[]> {
-    return this.charactersBehavior.asObservable();
+    return this.charactersBehavior$.asObservable();
   }
 
   loadMore(): Promise<CharacterI[]> {
@@ -28,7 +28,8 @@ export class CharacterService {
         `${environment.api}/character/?page=${this.page}`
       );
       req.subscribe((resp) => {
-        this.charactersBehavior.value.push(...resp.results);
+        const items = [...this.charactersBehavior$.value, ...resp.results];
+        this.charactersBehavior$.next(items);
         resolve(resp.results);
       });
     });
@@ -51,7 +52,7 @@ export class CharacterService {
       `${environment.api}/character/?page=1`
     );
     req.subscribe((resp) => {
-      this.charactersBehavior.next(resp.results);
+      this.charactersBehavior$.next(resp.results);
     });
   }
 }
