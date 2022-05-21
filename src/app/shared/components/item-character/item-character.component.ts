@@ -1,10 +1,18 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { CharacterI } from 'src/app/shared/interfaces/character.interface';
 
 @Component({
   selector: 'app-item-character',
   templateUrl: './item-character.component.html',
   styleUrls: ['./item-character.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ItemCharacterComponent implements OnInit {
   @Output() onclick = new EventEmitter();

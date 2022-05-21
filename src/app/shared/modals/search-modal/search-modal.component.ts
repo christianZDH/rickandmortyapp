@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  Input,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { IonSearchbar, ModalController } from '@ionic/angular';
 import {
   CharacterI,
@@ -18,6 +24,7 @@ import { Router } from '@angular/router';
   selector: 'app-search-modal',
   templateUrl: './search-modal.component.html',
   styleUrls: ['./search-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchModalComponent implements OnInit {
   @ViewChild(IonSearchbar) ionSearchbar: IonSearchbar;

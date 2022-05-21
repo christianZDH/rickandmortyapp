@@ -21,14 +21,22 @@
 </ion-header>
 <ion-content scrollY="false">
   <ion-thumbnail class="animate__animated animate__fadeIn">
-    <ion-img [src]="character?.image || 'assets/noimage.jpeg'"></ion-img>
+    <ion-img
+      decoding="async"
+      part="image"
+      [src]="character?.image || 'assets/noimage.jpeg'"
+    ></ion-img>
   </ion-thumbnail>
 
   <div
     class="content ion-padding animate__animated animate__faster animate__fadeInUp"
   >
     <ion-avatar class="animate__animated animate__fadeIn">
-      <ion-img [src]="character?.image || 'assets/noimage.jpeg'"></ion-img>
+      <ion-img
+        decoding="async"
+        part="image"
+        [src]="character?.image || 'assets/noimage.jpeg'"
+      ></ion-img>
     </ion-avatar>
     <div *ngIf="episode !== undefined">
       <ion-item style="margin-top: 40px" color="secondary" lines="none">

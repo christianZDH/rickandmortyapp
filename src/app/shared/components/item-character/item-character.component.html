@@ -1,6 +1,6 @@
 <ion-item color="secondary" (click)="clickCharacter(character)" button detail>
   <ion-thumbnail slot="start">
-    <ion-img [src]="character.image"> </ion-img>
+    <ion-img decoding="async" part="image" [src]="character.image"> </ion-img>
   </ion-thumbnail>
   <ion-text>
     <ion-label class="name ion-text-wrap">{{ character.name }}</ion-label>
