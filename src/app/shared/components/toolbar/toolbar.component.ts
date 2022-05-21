@@ -1,24 +1,23 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
-  OnDestroy,
   Output,
 } from '@angular/core';
 import { DarkmodeService } from '../../services/darkmode.service';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ToolbarComponent implements OnDestroy {
+export class ToolbarComponent {
   @Input() searchDisable = false;
   @Input() title: string;
   @Output() onsearchClick = new EventEmitter();
-  darkmode: boolean;
-  darkmodeSubscription: Subscription;
+  darkmode = false;
 
   constructor(private darkmodeService: DarkmodeService) {
     this.darkmodeService.getStatus().subscribe((status) => {
@@ -26,15 +25,12 @@ export class ToolbarComponent implements OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-    this.darkmodeSubscription.unsubscribe();
-  }
-
   clickSearchEmitter() {
     this.onsearchClick.emit();
   }
 
   darkModeToggle() {
-    this.darkmodeService.darkMode(!this.darkmode);
+    this.darkmode = !this.darkmode;
+    this.darkmodeService.darkMode(this.darkmode);
   }
 }
