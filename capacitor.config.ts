@@ -3,7 +3,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.rickandmorty.christianhdz',
-  appName: 'Rick and morty',
+  appName: 'Rick and morty Guide',
   webDir: 'dist/rickandmorty',
   bundledWebRuntime: false,
   backgroundColor: '#16ACC9',
